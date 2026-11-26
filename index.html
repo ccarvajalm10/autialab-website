@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autia Lab</title>
+<meta name="description" content="Autia Lab finds the bottleneck in your operations and builds the AI system that clears it: AI agents, workflow automation, lead systems and internal tools, with privacy built in.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='18' fill='%23060608'/%3E%3Ccircle cx='31' cy='50' r='15' fill='none' stroke='white' stroke-width='9'/%3E%3Cpath d='M46 37v19c0 9 6 12 13 9' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='19' r='7' fill='%23FF6B35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@900&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a studio site that sells one promise, calm and exact
+   IDEA the bottleneck: work piles up at a narrow neck, the Autia system clears it
+   PICTURE live flow of tasks squeezing through a neck, toggled before / after the system
+   COLOUR ink black #060608 ground, solar orange #FF6B35 lead, amber and teal support, cream text
+   TYPE Instrument Sans + Instrument Serif italic for key words; Gabarito only in the logo
+   LAYOUT laptop: headline top-left, flow full width beneath with stats strip; phone: title, flow, buttons */
+:root{color-scheme:dark;--bg:#060608;--ink:#F6F3EE;--mute:#A9A4B5;--line:#24222c;--panel:#0e0d14;--org:#FF6B35;--amb:#FFB547;--teal:#19C2B0;--coral:#FF3D6E;--night:#0B1024}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Instrument Sans',Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:'Instrument Sans',Inter,sans-serif;letter-spacing:-.03em;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,4.4vw,54px);font-weight:500}
+h1 em,h2 em,.big em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+h3{font-size:21px;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.band{padding:clamp(56px,7vw,110px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.lead{color:var(--mute);font-size:17px;max-width:62ch}
+.head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 15px 'Instrument Sans',Inter,sans-serif;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--amb);outline-offset:3px}
+.pri{background:var(--org);color:#060608}
+.pri:hover{background:#ff8455}
+.ghost{border-color:#3a3744;color:var(--ink);background:transparent}
+.ghost:hover{border-color:var(--ink)}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:28px;padding:12px max(5vw,16px)}
+.logo{display:inline-block;text-decoration:none;font:900 34px/1 Gabarito,sans-serif;letter-spacing:-.04em;color:#fff;white-space:nowrap}
+.logo svg{width:.569em;height:.323em;vertical-align:-.0135em;margin-left:.11em;overflow:visible}
+.links{display:flex;gap:24px;margin-left:auto}
+.links a{text-decoration:none;color:var(--mute);font-size:15px}
+.links a:hover{color:var(--ink)}
+.nav .btn{min-height:42px;padding:0 18px}
+.menu{display:none;margin-left:auto;background:none;border:1px solid #3a3744;color:var(--ink);border-radius:999px;min-height:44px;padding:0 16px;font:600 14px Inter}
+/* hero */
+.hero{position:relative;overflow:hidden;padding-top:clamp(44px,6vw,84px);padding-bottom:0}
+.glow{position:absolute;inset:-10% -10% auto;height:120%;pointer-events:none;background:radial-gradient(42% 38% at 72% 42%,rgba(255,107,53,.55),transparent 70%),radial-gradient(30% 30% at 58% 60%,rgba(255,61,110,.28),transparent 70%),radial-gradient(34% 30% at 86% 24%,rgba(255,181,71,.32),transparent 70%),radial-gradient(40% 40% at 20% 90%,rgba(11,16,36,.9),transparent 70%);filter:blur(10px)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .wrap{position:relative}
+.hgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px 56px;align-items:end}
+.hero h1{font-size:clamp(42px,6vw,80px);font-weight:500;letter-spacing:-.035em;line-height:1.02}
+.hero h1 em.o{color:var(--org)}
+.hero .lead{color:#d8d3df;margin-bottom:26px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.stage{position:relative;margin-top:clamp(28px,4vw,48px);border:1px solid #2b2833;border-radius:22px;background:rgba(6,6,8,.55);overflow:hidden}
+.fig{position:relative;height:clamp(250px,30vw,360px)}
+.fig canvas{position:absolute;inset:0;width:100%;height:100%}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-top:1px solid #2b2833}
+.bar p{color:var(--mute);font-size:14px}
+.bar b{color:var(--ink);font-weight:600}
+.toggle{display:inline-flex;padding:4px;border-radius:999px;background:#15131b;border:1px solid #2b2833}
+.toggle button{min-height:38px;padding:0 16px;border-radius:999px;border:0;background:none;color:var(--mute);font:600 14px Inter;cursor:pointer}
+.toggle button[aria-pressed=true]{background:var(--ink);color:#060608}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:clamp(36px,5vw,64px)}
+.stat{padding:26px 22px 30px 0}
+.stat+.stat{padding-left:22px;border-left:1px solid var(--line)}
+.num{font:500 clamp(38px,4.6vw,60px)/1 'Instrument Sans',sans-serif;letter-spacing:-.03em;color:var(--org);white-space:nowrap}
+.stat p{color:var(--mute);font-size:15px;margin-top:10px}
+.stat b{color:var(--ink);font-weight:600}
+/* work */
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.case{background:var(--bg);padding:28px 26px 30px;display:flex;flex-direction:column;gap:14px}
+.case .k{font:500 clamp(34px,3.6vw,46px)/1 'Instrument Sans',sans-serif;letter-spacing:-.03em;color:var(--amb)}
+.case .who{font-size:14px;color:var(--teal);font-weight:600}
+.case p{color:var(--mute);font-size:15px}
+.case ul{margin:0;padding-left:18px;color:#d8d3df;font-size:15px}
+.case li{margin:4px 0}
+.case .res{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
+.note{color:var(--mute);font-size:13px;margin-top:16px}
+/* services */
+.svc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel)}
+.tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.tabs button{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;min-height:64px;padding:16px 22px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--mute);font:600 17px 'Instrument Sans',Inter,sans-serif;cursor:pointer}
+.tabs button:last-child{border-bottom:0}
+.tabs button[aria-selected=true]{color:var(--ink);background:#15131b}
+.tabs button[aria-selected=true]::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--org);flex:none}
+.pane{padding:clamp(24px,3vw,40px)}
+.pane h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:10px}
+.pane>p{color:var(--mute);max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{padding:9px 14px;border:1px solid #33303c;border-radius:999px;font-size:15px;color:#e6e1ea}
+.mini{margin-top:30px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--mute)}
+.mini span{padding:6px 12px;border-radius:8px;background:#1a1822;color:var(--ink)}
+.mini i{font-style:normal;color:var(--org)}
+/* use cases */
+.ucs{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:28px;align-items:start}
+.uclist{display:flex;flex-direction:column;gap:8px}
+.uclist button{text-align:left;min-height:56px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:none;color:var(--mute);font:500 16px Inter;cursor:pointer}
+.uclist button[aria-pressed=true]{border-color:var(--org);color:var(--ink);background:#15110f}
+.rail{position:relative;border:1px solid var(--line);border-radius:20px;padding:30px 28px;background:linear-gradient(160deg,#120d10,#0a0a0f)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.steps li{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;padding:0 0 22px}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:"";position:absolute;left:16px;top:30px;bottom:0;width:2px;background:#2b2833}
+.steps li:last-child::before{display:none}
+.dot{width:34px;height:34px;border-radius:50%;border:2px solid #3a3744;display:grid;place-items:center;font:700 13px Inter;color:var(--mute);background:var(--bg);transition:all .35s}
+.steps li.on .dot{border-color:var(--org);background:var(--org);color:#060608}
+.steps li.on::before{background:linear-gradient(var(--org),#2b2833)}
+.steps p{padding-top:5px;font-size:17px;color:#e6e1ea}
+.steps small{display:block;color:var(--mute);font-size:14px}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.proc::before{content:"";position:absolute;left:12px;right:12px;top:23px;height:2px;background:linear-gradient(90deg,var(--org),var(--amb),var(--teal))}
+.st{position:relative;padding-top:64px}
+.st .n{position:absolute;top:0;left:0;width:48px;height:48px;border-radius:50%;background:var(--bg);border:2px solid var(--org);display:grid;place-items:center;font:600 15px 'Instrument Sans',sans-serif;color:var(--ink)}
+.st h3{margin-bottom:8px;font-size:24px}
+.st p{color:var(--mute);font-size:15px}
+/* trust */
+.trust{background:var(--night)}
+.tgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.inds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
+.ind{padding:20px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ind h3{font-size:19px;margin-bottom:6px}
+.ind p{color:#b9b6cc;font-size:14px}
+.creds{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.1)}
+.creds li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px}
+.creds span{color:#b9b6cc;text-align:right}
+/* stack */
+.eco{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.ecofig{position:relative;height:420px}
+.ecofig svg{position:absolute;inset:0;width:100%;height:100%}
+svg text{paint-order:stroke;stroke:var(--bg);stroke-width:5px}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.about .big{font:500 clamp(28px,3.2vw,40px)/1.15 'Instrument Sans',sans-serif;letter-spacing:-.02em}
+.about .big em{color:var(--org)}
+.about .txt{display:flex;flex-direction:column;gap:16px;color:#d8d3df;font-size:17px}
+/* contact */
+.contact{position:relative;overflow:hidden}
+.contact .glow{inset:auto -20% -40% 30%;height:110%}
+.cgrid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+form{display:grid;gap:14px;padding:clamp(22px,3vw,34px);border-radius:20px;background:rgba(14,13,20,.88);border:1px solid #2b2833}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+label{display:grid;gap:6px;font-size:14px;color:var(--mute)}
+input,select,textarea{font:16px Inter,sans-serif;color:var(--ink);background:#0a090e;border:1px solid #3a3744;border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:110px;resize:vertical}
+.ok{display:none;padding:16px;border-radius:12px;background:#14231f;border:1px solid #1d5a50;font-size:15px}
+.ok.show{display:block}
+.ok a{color:var(--teal)}
+.direct{margin-top:26px;display:flex;flex-direction:column;gap:6px;color:var(--mute);font-size:15px}
+.direct a{color:var(--ink);font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px max(5vw,16px)}
+.foot{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;color:var(--mute);font-size:14px}
+@media(max-width:900px){.links,.nav .btn{display:none}.menu{display:inline-flex;align-items:center}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px max(5vw,16px)}.links.open a{padding:12px 0;font-size:17px}.hgrid,.head,.tgrid,.eco,.about,.cgrid,.ucs{grid-template-columns:minmax(0,1fr)}.cases{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){padding-left:0;border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}.proc{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}.proc::before{display:none}}
+@media(max-width:640px){.cases,.svc,.row,.inds{grid-template-columns:minmax(0,1fr)}.tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}.tabs button{flex:none;border-bottom:0;border-right:1px solid var(--line);min-height:56px;font-size:15px}.tabs button[aria-selected=true]::after{display:none}.proc{grid-template-columns:minmax(0,1fr)}.stat{padding-right:12px}.stat+.stat{padding-left:12px}.ecofig{height:340px}.bar{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.dot{transition:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="nav">
+    <a class="logo" href="#top" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+    <div class="links" id="links">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#cases">Use cases</a><a href="#process">Process</a><a href="#about">About</a>
+    </div>
+    <a class="btn pri" href="#contact">Let's automate your operations</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+  </div>
+</nav>
+
+<header class="band hero" id="top">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="wrap">
+    <div class="hgrid">
+      <h1>We find your <em>bottleneck.</em> Then we build the system that <em class="o">clears&nbsp;it.</em></h1>
+      <div>
+        <p class="lead">Autia Lab designs AI agents, workflows and connected systems that take repetitive work off your team, so you recover hours, add capacity and grow without adding the same amount of work.</p>
+        <div class="ctas"><a class="btn pri" href="#contact">Let's automate your operations</a><a class="btn ghost" href="#services">Explore what we build</a></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="fig" id="flow" role="img" aria-label="Animation: requests from WhatsApp, email, forms, documents and the CRM pile up at a narrow bottleneck; with the Autia system they flow through to qualified leads, replies, updated records and assigned tasks."><canvas id="cv"></canvas></div>
+      <div class="bar">
+        <p id="cap"><b>With the system:</b> every request is read, routed and answered in seconds.</p>
+        <div class="toggle" role="group" aria-label="Compare">
+          <button type="button" id="bBefore" aria-pressed="false">Before</button>
+          <button type="button" id="bAfter" aria-pressed="true">With Autia</button>
+        </div>
+      </div>
+    </div>
+    <div class="stats" id="stats">
+      <div class="stat"><div class="num" data-to="80" data-pre="" data-suf="+">80+</div><p><b>hours saved every week</b> through automated workflows</p></div>
+      <div class="stat"><div class="num" data-to="30" data-pre="+" data-suf="%">+30%</div><p><b>operational processing capacity</b> with the same team</p></div>
+      <div class="stat"><div class="num" data-to="42" data-pre="" data-suf="%">42%</div><p><b>better business performance</b> at best: conversion, response times, efficiency</p></div>
+      <div class="stat"><div class="num" data-to="1" data-pre="$" data-suf="M+">$1M+</div><p><b>estimated ROI over two years</b> from automated privacy operations</p></div>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="work" aria-labelledby="wt">
+  <div class="wrap">
+    <div class="head"><h2 id="wt">Systems we've built, and what they <em>changed.</em></h2><p class="lead">Real projects for law firms, fintechs and privacy teams. Client names stay private; the results don't.</p></div>
+    <div class="cases" id="caseGrid"></div>
+    <p class="note">Results reported by the client teams. The ISO 27001 analyzer is an internal tool tested on sample company data.</p>
+  </div>
+</section>
+
+<section class="band" id="services" aria-labelledby="st" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 id="st">What we <em>build.</em></h2><p class="lead">Six kinds of systems. Most projects combine two or three, starting with whichever one is slowing you down the most.</p></div>
+    <div class="svc">
+      <div class="tabs" role="tablist" aria-label="Service categories" id="tabs"></div>
+      <div class="pane" role="tabpanel" id="pane" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="cases" aria-labelledby="ut" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 id="ut">Recognise <em>one of these?</em></h2><p class="lead">Pick a situation and follow what the system does, step by step.</p></div>
+    <div class="ucs">
+      <div class="uclist" id="uclist"></div>
+      <div class="rail"><ol class="steps" id="steps"></ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="process" aria-labelledby="pt" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 id="pt">How we <em>work.</em></h2><p class="lead">We never let software invent your process. We map it with you first, then automate the step that matters most.</p></div>
+    <div class="proc">
+      <div class="st"><div class="n">01</div><h3>Discover</h3><p>We find the bottlenecks: repetitive tasks, disconnected tools, leads that go cold, work that waits on one person.</p></div>
+      <div class="st"><div class="n">02</div><h3>Design</h3><p>We map the real process, define the architecture and design the workflow around how your team actually works.</p></div>
+      <div class="st"><div class="n">03</div><h3>Build</h3><p>We develop and connect AI agents, automations, APIs, databases and your existing tools, with human review where it counts.</p></div>
+      <div class="st"><div class="n">04</div><h3>Optimize</h3><p>We test, measure and refine. When the bottleneck moves, we find the next one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band trust" aria-labelledby="tt">
+  <div class="wrap tgrid">
+    <div>
+      <h2 id="tt">Built for industries where <em>data matters.</em></h2>
+      <p class="lead" style="color:#c9c6d9;margin-top:18px">Our background is in privacy law and AI governance, so data protection is part of the design from day one. That lets us move fast in sectors where a careless automation is a real risk, and help you make the AI tools you already use compliant.</p>
+      <div class="inds">
+        <div class="ind"><h3>Law firms</h3><p>Client intake, case updates, deadlines, documents, billing.</p></div>
+        <div class="ind"><h3>Compliance & privacy</h3><p>DSARs, DPIAs, vendor reviews, client reporting at scale.</p></div>
+        <div class="ind"><h3>Fintech</h3><p>Entity management, regulatory deadlines, internal operations.</p></div>
+        <div class="ind"><h3>Healthcare</h3><p>Patient intake and follow-ups with sensitive data handled properly.</p></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:24px">Privacy and AI governance, built in</h3>
+      <ul class="creds">
+        <li>Data protection by design<span>GDPR, DPAs, data minimisation</span></li>
+        <li>Human review where it counts<span>AI drafts, people approve</span></li>
+        <li>You own every account<span>Credentials and data stay yours</span></li>
+        <li>Privacy certifications<span>CIPP/E, CIPM (IAPP)</span></li>
+        <li>Training<span>Master's in Law, Data and AI</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="et">
+  <div class="wrap eco">
+    <div>
+      <h2 id="et">Tools follow the problem, <em>not the other way around.</em></h2>
+      <p class="lead" style="margin-top:18px">We pick the stack for each process: what your team already uses, what fits your data, and what will still be easy to maintain a year from now.</p>
+    </div>
+    <div class="ecofig" id="eco" role="img" aria-label="Your process at the centre, connected to n8n, Make, OpenAI, Claude, Claude Code, Supabase, APIs, SQL, CRM and WhatsApp"><svg id="ecosvg"></svg></div>
+  </div>
+</section>
+
+<section class="band" id="about" aria-labelledby="at" style="padding-top:0">
+  <div class="wrap about">
+    <div>
+      <h2 id="at" style="margin-bottom:22px">About Autia Lab</h2>
+      <p class="big">Businesses shouldn't have to scale their workload to scale their results. <em>That's the whole idea.</em></p>
+    </div>
+    <div class="txt">
+      <p>Autia Lab turns repetitive, scattered, manual operations into systems that run in the background, so your team can spend its time on decisions, clients and growth.</p>
+      <p>We combine process analysis, automation architecture, AI implementation and technical integrations. Every project starts with one question: what is the narrowest point in this business right now?</p>
+      <p>Autia Lab was founded by Catalina Moreno, a lawyer and AI automation builder with a Master's in Law, Data and AI and IAPP privacy certifications. We work with companies in the US, Europe and Latin America, in English and Spanish.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact" aria-labelledby="ct">
+  <div class="glow"></div>
+  <div class="wrap cgrid">
+    <div>
+      <h2 id="ct">Let's find out what your business <em>shouldn't be doing manually.</em></h2>
+      <p class="lead" style="margin-top:18px">Repetitive processes, disconnected tools, leads waiting too long, or AI you want to use safely: tell us where it hurts and we'll come back with where we'd start.</p>
+      <div class="direct"><span>Prefer email?</span><a href="mailto:catalina@autialab.com">catalina@autialab.com</a><span>English and Spanish · US, Europe and LatAm</span></div>
+    </div>
+    <form id="form" novalidate>
+      <div class="row">
+        <label for="fName">Name<input id="fName" name="name" autocomplete="name" required></label>
+        <label for="fEmail">Business email<input id="fEmail" name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label for="fCo">Company<input id="fCo" name="company" autocomplete="organization"></label>
+      <label for="fWhat">What would you like to automate?
+        <select id="fWhat" name="what" required>
+          <option value="">Choose one</option><option>Lead generation and follow-ups</option><option>WhatsApp and customer communication</option><option>Internal operations and tasks</option><option>Documents and data processing</option><option>Reporting and dashboards</option><option>AI agents or internal AI tools</option><option>Privacy or AI compliance review</option><option>Not sure yet</option>
+        </select></label>
+      <label for="fDesc"><span>How does it work today? <span style="opacity:.7">(optional)</span></span><textarea id="fDesc" name="desc" placeholder="Who does it, how often, which tools are involved"></textarea></label>
+      <button class="btn pri" type="submit" style="justify-self:start">Start a conversation</button>
+      <div class="ok" id="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer><div class="foot"><a class="logo" href="#top" aria-label="Autia Lab, back to top" style="font-size:28px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a><span>We find your bottleneck and build the system that clears it.</span><span>© 2026 Autia Lab · <a href="mailto:catalina@autialab.com">catalina@autialab.com</a></span></div></footer>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nav */
+const menu=$('#menu'),links=$('#links');
+menu.addEventListener('click',()=>{const o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)});
+links.addEventListener('click',e=>{if(e.target.tagName==='A'){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+
+/* case studies */
+const CASES=[
+ {k:'+30%',who:'Law firm · WhatsApp',t:'Lead conversion up 30%, revenue up 16%',p:'Prospects waited hours for a WhatsApp reply and many never signed.',b:['Intake bot that qualifies, books and assigns the lawyer','Answers trained on firm-approved information','Case status updates, document intake, billing reminders'],r:'+30% conversion · +16% revenue · 65 h saved per month'},
+ {k:'80 h',who:'Fintech · 95+ countries',t:'80 hours a week back for the legal team',p:'Entities, filings and renewals tracked by hand across 95+ countries.',b:['One source of truth for every entity','Automatic detection of deadlines and filings','Each task assigned to its owner'],r:'80 h/week across 4 people · about $150K a year'},
+ {k:'10–20 h',who:'Fintech · regulatory deadlines',t:'No more chasing deadline owners',p:'Deadlines depended on someone remembering and emailing everyone.',b:['Reminders by email and chat based on due dates','Follow-ups until the task is closed','Live dashboard with no manual updates'],r:'10 to 20 h saved per person, every week'},
+ {k:'$1M+',who:'Multinationals · privacy ops',t:'Privacy operations that write their own first drafts',p:'Every DPA, DPIA and data subject request started from a blank page.',b:['End-to-end DSAR workflow with jurisdiction deadlines','DPAs, DPIAs, RoPAs and notices from one intake form','Status reports across 20 to 100 clients'],r:'$1M+ estimated ROI over two years'},
+ {k:'45+',who:'Law firm · litigation',t:'AI agents watching every court case',p:'Checking cases by hand cost hours, and one missed deadline can cost a case.',b:['Agent that tracks filings and deadlines per case','Alerts when something moves','Automated invoicing and collections'],r:'45+ cases monitored automatically'},
+ {k:'4→1 day',who:'Internal tool · ISO 27001',t:'Gap analysis in a day instead of four',p:'Reviewing 93 Annex A controls is slow and repetitive.',b:['Assesses all 93 controls with evidence citations','Exports backlog and Statement of Applicability','Due diligence reviews cut from months to weeks with the same approach'],r:'About 4 days down to 1 per review'}
+];
+$('#caseGrid').innerHTML=CASES.map(c=>`<article class="case"><div class="k">${esc(c.k)}</div><div class="who">${esc(c.who)}</div><h3>${esc(c.t)}</h3><p>${esc(c.p)}</p><ul>${c.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><div class="res">${esc(c.r)}</div></article>`).join('');
+
+/* services */
+const SVC=[
+ {n:'AI agents & intelligent systems',d:'Agents that read, decide and act inside your tools, with a person approving what matters.',i:['Custom AI agents','AI assistants for your team','Multi-step AI workflows','Knowledge-based AI systems','AI-powered internal tools','Human-in-the-loop review'],f:['Request','Agent reads it','Checks your knowledge base','Drafts the action','You approve']},
+ {n:'Business process automation',d:'The repetitive steps between your tools, done automatically and the same way every time.',i:['End-to-end workflows','Administrative tasks','Internal operational flows','Document processing','Data extraction','Approval workflows','Cross-platform automation'],f:['Trigger','Extract data','Validate','Update systems','Notify team']},
+ {n:'Sales & lead automation',d:'Every lead answered fast, qualified and followed up, without anyone copying data by hand.',i:['Lead generation','Lead enrichment','Lead qualification','Lead routing','Automated follow-ups','CRM integrations','Lead pipelines'],f:['New lead','Enrich','Score','Route to sales','Follow up']},
+ {n:'Customer communication',d:'Clients get answers on the channel they already use, and hard cases reach a person.',i:['WhatsApp automation','AI customer support','Automated responses','Conversational workflows','Client onboarding','Follow-up systems'],f:['WhatsApp message','Understand request','Find answer','Reply','Escalate if needed']},
+ {n:'Data, reporting & BI',d:'Numbers collected, joined and reported for you, so meetings start with answers.',i:['Automated reporting','Data consolidation','Dashboards','Performance monitoring','Database workflows','Automated insights'],f:['Scattered data','Consolidate','Clean','Dashboard','Weekly report']},
+ {n:'Operations & internal systems',d:'Projects, tasks and knowledge organised so nothing depends on someone remembering.',i:['Project management automation','Task management systems','Team workflows','Internal knowledge systems','Alerts and notifications','Process optimization'],f:['New project','Create tasks','Assign owners','Track progress','Alert on delays']}
+];
+const tabs=$('#tabs'),pane=$('#pane');
+tabs.innerHTML=SVC.map((s,i)=>`<button role="tab" id="tab${i}" aria-controls="pane" aria-selected="${i===0}" tabindex="${i===0?0:-1}">${esc(s.n)}</button>`).join('');
+const showSvc=i=>{const s=SVC[i];tabs.querySelectorAll('button').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});pane.setAttribute('aria-labelledby','tab'+i);pane.innerHTML=`<h3>${esc(s.n)}</h3><p>${esc(s.d)}</p><div class="chips">${s.i.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div><div class="mini">${s.f.map(x=>`<span>${esc(x)}</span>`).join('<i>→</i>')}</div>`};
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)showSvc([...tabs.children].indexOf(b))});
+tabs.addEventListener('keydown',e=>{const bs=[...tabs.children],i=bs.indexOf(document.activeElement);if(i<0)return;let j=i;if(['ArrowDown','ArrowRight'].includes(e.key))j=(i+1)%bs.length;else if(['ArrowUp','ArrowLeft'].includes(e.key))j=(i-1+bs.length)%bs.length;else return;e.preventDefault();bs[j].focus();showSvc(j)});
+showSvc(0);
+
+/* use cases */
+const UC=[
+ {n:'A lead arrives and waits',s:[['A lead arrives','Form, ad, email or WhatsApp'],['AI analyses it','Need, budget, urgency'],['Lead is qualified','Scored against your criteria'],['CRM is updated','No copy-paste'],['Sales is notified','With a summary'],['Personal follow-up goes out','In minutes, not days']]},
+ {n:'Customers write on WhatsApp',s:[['Customer sends a message','Any hour'],['AI understands the request','Question, booking or problem'],['Information is retrieved','Only approved content'],['Answer is sent','In their language'],['Hard cases reach a person','With full context']]},
+ {n:'Documents pile up',s:[['Documents arrive','Email, uploads, scans'],['Data is extracted','Names, dates, amounts'],['Information is checked','Missing items flagged'],['Records are updated','In the right system'],['Reports are generated','Ready to review']]},
+ {n:'Projects run on memory',s:[['A project starts','From a signed deal or request'],['Tasks are created','From your template'],['Owners are assigned','By role or workload'],['Progress is tracked','Automatically'],['Alerts go out','Before deadlines slip']]},
+ {n:'Data lives everywhere',s:[['Data sits in five tools','Sheets, CRM, billing, email'],['It is consolidated','On a schedule'],['It is cleaned','Duplicates and gaps fixed'],['Dashboards update','Always current'],['Reports send themselves','Weekly or monthly']]}
+];
+const ucl=$('#uclist'),steps=$('#steps');let ucTimer=null,ucOn=0;
+ucl.innerHTML=UC.map((u,i)=>`<button type="button" aria-pressed="${i===0}">${esc(u.n)}</button>`).join('');
+const runUC=i=>{ucOn=i;ucl.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));steps.innerHTML=UC[i].s.map((s,k)=>`<li><span class="dot">${k+1}</span><p>${esc(s[0])}<small>${esc(s[1])}</small></p></li>`).join('');const lis=[...steps.children];clearInterval(ucTimer);if(RM){lis.forEach(l=>l.classList.add('on'));return}let k=0;lis[0].classList.add('on');ucTimer=setInterval(()=>{k++;if(k<lis.length)lis[k].classList.add('on');else{clearInterval(ucTimer)}},550)};
+ucl.addEventListener('click',e=>{const b=e.target.closest('button');if(b)runUC([...ucl.children].indexOf(b))});
+runUC(0);
+
+/* ecosystem */
+const ecoBox=$('#eco'),eco=$('#ecosvg');
+const TOOLS=['n8n','Make','OpenAI','Claude','Claude Code','Supabase','APIs','SQL','CRM','WhatsApp'];
+const drawEco=()=>{const W=ecoBox.clientWidth,H=ecoBox.clientHeight;if(!W)return;const cx=W/2,cy=H/2,R=Math.min(W*.42,H*.40),fs=W<420?13:15;let s=`<defs><radialGradient id="cg"><stop offset="0" stop-color="#FF6B35" stop-opacity=".55"/><stop offset="1" stop-color="#FF6B35" stop-opacity="0"/></radialGradient></defs><circle cx="${cx}" cy="${cy}" r="${R*.75}" fill="url(#cg)"/><circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#24222c" stroke-dasharray="3 6"/>`;
+TOOLS.forEach((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/TOOLS.length,x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);s+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${i%3===0?'#FF6B35':i%3===1?'#19C2B0':'#FFB547'}" stroke-opacity=".45" stroke-width="1.5"/>`});
+TOOLS.forEach((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/TOOLS.length,x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);const w=t.length*fs*.6+26;s+=`<rect x="${x-w/2}" y="${y-17}" width="${w}" height="34" rx="17" fill="#0e0d14" stroke="#3a3744"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="#F6F3EE" font-size="${fs}" font-family="Instrument Sans,sans-serif" font-weight="600" style="stroke:none">${esc(t)}</text>`});
+s+=`<circle cx="${cx}" cy="${cy}" r="${Math.min(62,R*.42)}" fill="#F6F3EE"/><text x="${cx}" y="${cy-3}" text-anchor="middle" fill="#060608" font-size="${fs+1}" font-weight="700" font-family="Instrument Sans,sans-serif" style="stroke:none">Your</text><text x="${cx}" y="${cy+16}" text-anchor="middle" fill="#060608" font-size="${fs+1}" font-weight="700" font-family="Instrument Sans,sans-serif" style="stroke:none">process</text>`;eco.innerHTML=s};
+const ecoRO=new ResizeObserver(drawEco);ecoRO.observe(ecoBox);
+
+/* counters */
+const nums=[...document.querySelectorAll('.num')];
+const count=el=>{const to=+el.dataset.to,pre=el.dataset.pre,suf=el.dataset.suf,t0=performance.now(),d=1200;const tick=now=>{const p=Math.min(1,(now-t0)/d),v=Math.round(to*(1-(1-p)**3));el.textContent=pre+v+suf;if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)};
+if(!RM&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);io.unobserve(e.target)}}),{threshold:.6});nums.forEach(n=>io.observe(n))}
+
+/* bottleneck flow */
+const box=$('#flow'),cv=$('#cv'),ctx=cv.getContext('2d');
+let W=0,H=0,DPR=1,mode='after',parts=[],seed=7,frame=0;
+const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+const IN=['WhatsApp','Email','Forms','Documents','CRM'],OUT=['Qualified lead','Reply sent','Record updated','Task assigned'];
+const COL=['#FF6B35','#FFB547','#19C2B0','#FF3D6E','#F6F3EE'];
+const size=()=>{DPR=Math.min(2,devicePixelRatio||1);W=box.clientWidth;H=box.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0)};
+const flowRO=new ResizeObserver(()=>{size();if(RM)draw()});flowRO.observe(box);
+const lx=()=>W<560?16:Math.min(120,W*.12),rx=()=>W<560?W-16:W-Math.min(150,W*.15);
+const spawn=()=>{const lane=Math.floor(rnd()*IN.length);parts.push({t:0,lane,out:Math.floor(rnd()*OUT.length),c:COL[lane],j:rnd()-.5,v:.0028+rnd()*.0016})};
+const yIn=l=>H*(.16+l*(.68/(IN.length-1))),yOut=o=>H*(.2+o*(.6/(OUT.length-1)));
+const ease=x=>x*x*(3-2*x);
+const pos=p=>{const a=lx()+28,b=rx()-28,neck=.5,x=a+(b-a)*p.t,cy=H/2,gap=mode==='after'?H*.15:H*.035;let y;if(p.t<neck){const k=ease(p.t/neck);y=yIn(p.lane)+(cy+p.j*gap-yIn(p.lane))*k}else{const k=ease((p.t-neck)/(1-neck));y=cy+p.j*gap+(yOut(p.out)-cy-p.j*gap)*k}return[x,y]};
+const draw=()=>{if(!W)return;ctx.clearRect(0,0,W,H);const a=lx()+28,b=rx()-28,nx=a+(b-a)*.5,cy=H/2,gap=mode==='after'?H*.17:H*.045;
+ ctx.strokeStyle='rgba(246,243,238,.10)';ctx.lineWidth=1;
+ for(let l=0;l<IN.length;l++){ctx.beginPath();for(let t=0;t<=.5;t+=.02){const[x,y]=pos({t,lane:l,out:0,j:0});t===0?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.stroke()}
+ for(let o=0;o<OUT.length;o++){ctx.beginPath();for(let t=.5;t<=1.001;t+=.02){const[x,y]=pos({t,lane:0,out:o,j:0});t===.5?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.stroke()}
+ ctx.fillStyle=mode==='after'?'rgba(255,107,53,.16)':'rgba(255,61,110,.14)';ctx.beginPath();ctx.ellipse(nx,cy,mode==='after'?46:30,gap+18,0,0,Math.PI*2);ctx.fill();
+ ctx.strokeStyle=mode==='after'?'#FF6B35':'#FF3D6E';ctx.lineWidth=3;const sp=Math.min(110,W*.09);ctx.beginPath();ctx.moveTo(nx-sp,26);ctx.bezierCurveTo(nx-sp*.2,26,nx-10,cy-gap,nx,cy-gap);ctx.bezierCurveTo(nx+10,cy-gap,nx+sp*.2,26,nx+sp,26);ctx.moveTo(nx-sp,H-10);ctx.bezierCurveTo(nx-sp*.2,H-10,nx-10,cy+gap,nx,cy+gap);ctx.bezierCurveTo(nx+10,cy+gap,nx+sp*.2,H-10,nx+sp,H-10);ctx.stroke();
+ for(const p of parts){const[x,y]=pos(p);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(x,y,W<560?2.6:3.2,0,Math.PI*2);ctx.fill()}
+ const fs=W<560?12:14;ctx.font=`600 ${fs}px 'Instrument Sans',Inter,sans-serif`;ctx.textBaseline='middle';
+ if(W>=560){ctx.textAlign='right';ctx.fillStyle='#d8d3df';IN.forEach((t,l)=>ctx.fillText(t,lx()+18,yIn(l)));ctx.textAlign='left';OUT.forEach((t,o)=>ctx.fillText(t,rx()-18,yOut(o)))}
+ ctx.textAlign='center';ctx.fillStyle=mode==='after'?'#FF6B35':'#FF3D6E';ctx.font=`600 ${fs+2}px 'Instrument Serif',Georgia,serif`;ctx.font=`italic 400 ${fs+4}px 'Instrument Serif',Georgia,serif`;ctx.fillText(mode==='after'?'Autia system':'Bottleneck',nx,14)};
+const step=()=>{frame++;const cap=mode==='after'?140:230;if(frame%(mode==='after'?3:4)===0&&parts.length<cap)spawn();
+ const passing=parts.filter(p=>p.t>.47&&p.t<.53).length;
+ for(const p of parts){let v=p.v*(mode==='after'?1.25:1);if(mode==='before'){if(p.t>.38&&p.t<.5){const ahead=parts.filter(q=>q!==p&&q.t>p.t&&q.t<p.t+.018).length;v*=ahead>2?0.02:passing>1?0.15:.5}else if(p.t>=.5)v*=.55}p.t+=v}
+ parts=parts.filter(p=>p.t<1);draw();requestAnimationFrame(step)};
+const setMode=m=>{mode=m;$('#bBefore').setAttribute('aria-pressed',m==='before');$('#bAfter').setAttribute('aria-pressed',m==='after');$('#cap').innerHTML=m==='after'?'<b>With the system:</b> every request is read, routed and answered in seconds.':'<b>Before:</b> everything waits on the same few people, and work piles up at one point.';if(RM)draw()};
+$('#bBefore').addEventListener('click',()=>setMode('before'));$('#bAfter').addEventListener('click',()=>setMode('after'));
+size();
+if(RM){for(let i=0;i<90;i++){spawn();parts[parts.length-1].t=rnd()}draw()}else{for(let i=0;i<260;i++){if(i%3===0)spawn();for(const p of parts)p.t+=p.v*1.25;parts=parts.filter(p=>p.t<1)}requestAnimationFrame(step)}
+
+/* contact */
+const form=$('#form'),ok=$('#ok');
+form.addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntries(new FormData(form));const bad=[];if(!f.name.trim())bad.push('your name');if(!/^\S+@\S+\.\S+$/.test(f.email))bad.push('a valid business email');if(!f.what)bad.push('what you want to automate');if(bad.length){ok.className='ok show';ok.style.borderColor='#5a1d2c';ok.style.background='#23141a';ok.textContent='Please add '+bad.join(', ')+'.';return}
+ const body=`Name: ${f.name}\nCompany: ${f.company||'-'}\nEmail: ${f.email}\nWants to automate: ${f.what}\n\nHow it works today:\n${f.desc||'-'}`;
+ const href='mailto:catalina@autialab.com?subject='+encodeURIComponent('Automation inquiry: '+f.what)+'&body='+encodeURIComponent(body);
+ ok.className='ok show';ok.style.borderColor='';ok.style.background='';ok.innerHTML='Almost there. <a href="'+href+'">Open your email to send it</a>, or copy your note and send it to <b>catalina@autialab.com</b>. <button type="button" class="btn ghost" id="cp" style="min-height:40px;margin-top:10px">Copy note</button>';
+ $('#cp').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(body);$('#cp').textContent='Copied'}catch(_){$('#cp').textContent='Copy failed, select the text above'}});});
+}
+</script>
+</body>
+</html>
