@@ -2,6 +2,8 @@
 <html lang="en" data-title-en="Autia Lab · Intelligent systems studio" data-title-es="Autia Lab · Estudio de sistemas inteligentes">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Autia Lab · Intelligent systems studio</title>
 <meta name="description" content="Autia Lab finds the bottleneck in your operations and builds the AI-powered system that clears it, for companies in the US and Latin America.">
@@ -9,21 +11,21 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23060608'/%3E%3Ccircle cx='42' cy='60' r='20' fill='none' stroke='white' stroke-width='13'/%3E%3Cpath d='M62 42V68C62 80 70 84 80 80' fill='none' stroke='white' stroke-width='13' stroke-linecap='round'/%3E%3Ccircle cx='62' cy='20' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@900&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 <div id="intro" aria-hidden="true"><div><svg class="iso" viewBox="0 0 100 100" aria-hidden="true"><circle cx="42" cy="60" r="20" fill="none" stroke="#F6F3EE" stroke-width="13"/><path d="M62 42V68C62 80 70 84 80 80" fill="none" stroke="#F6F3EE" stroke-width="13" stroke-linecap="round"/><circle class="node" cx="62" cy="20" r="9" fill="#FF6B35"/></svg><div class="word"><span class="logo" style="font-size:40px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></span></div></div></div>
 <div id="chooser" role="dialog" aria-modal="true" aria-labelledby="chT"><div class="choose"><h2 id="chT">Choose your language</h2><p>Elige tu idioma</p><button type="button" data-set="en">English</button><button type="button" data-set="es">Español</button></div></div>
 <nav class="top" aria-label="Main"><div class="nav">
-<a class="logo" href="index.html" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+<a class="logo" href="/" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
 <div class="links" id="links">
-<a href="work.html"><span data-l="en">Work</span><span data-l="es">Casos</span></a>
-<a href="index.html#services"><span data-l="en">Services</span><span data-l="es">Servicios</span></a>
-<a href="index.html#process"><span data-l="en">Process</span><span data-l="es">Proceso</span></a>
-<a href="about.html"><span data-l="en">About</span><span data-l="es">Nosotros</span></a>
+<a href="/work"><span data-l="en">Work</span><span data-l="es">Casos</span></a>
+<a href="/#services"><span data-l="en">Services</span><span data-l="es">Servicios</span></a>
+<a href="/#process"><span data-l="en">Process</span><span data-l="es">Proceso</span></a>
+<a href="/about"><span data-l="en">About</span><span data-l="es">Nosotros</span></a>
 </div>
 <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">EN</button><button type="button" data-set="es" aria-pressed="false">ES</button></div>
-<a class="btn pri" href="index.html#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a>
+<a class="btn pri" href="/#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a>
 <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
 </div></nav>
 <header class="band hero" id="top">
@@ -34,7 +36,7 @@
       <div>
         <p class="lead" data-l="en">Autia Lab is an intelligent systems studio. We rethink how your business operates and build AI-powered systems that connect people, data, tools and workflows, so you can grow without growing the workload.</p>
         <p class="lead" data-l="es">Autia Lab es un estudio de sistemas inteligentes. Repensamos cómo opera tu empresa y construimos sistemas con IA que conectan personas, datos, herramientas y procesos, para que crezcas sin que crezca la carga de trabajo.</p>
-        <div class="ctas"><a class="btn pri" href="#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a><a class="btn ghost" href="work.html"><span data-l="en">See what we build</span><span data-l="es">Mira lo que construimos</span></a></div>
+        <div class="ctas"><a class="btn pri" href="#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a><a class="btn ghost" href="/work"><span data-l="en">See what we build</span><span data-l="es">Mira lo que construimos</span></a></div>
       </div>
     </div>
     <div class="stage">
@@ -60,11 +62,11 @@
     <div class="head"><h2 id="ft"><span data-l="en">Systems for teams that <em>can't afford to miss things.</em></span><span data-l="es">Sistemas para equipos que <em>no pueden permitirse olvidar nada.</em></span></h2>
       <p class="lead" data-l="en">A few of the systems we build for law firms and compliance teams. Each one comes with a live demo you can open.</p><p class="lead" data-l="es">Algunos de los sistemas que construimos para firmas de abogados y equipos de cumplimiento. Cada uno tiene una demo que puedes abrir.</p></div>
     <div class="feat">
-      <a class="fc" href="work.html#intake"><div class="k" data-l="en">Intake</div><div class="k" data-l="es">Clientes</div><div class="who" data-l="en">Client intake · CRM · WhatsApp</div><div class="who" data-l="es">Captación · CRM · WhatsApp</div><h3 data-l="en">From first inquiry to organised legal matter.</h3><h3 data-l="es">De la primera consulta a un caso organizado.</h3><p data-l="en">Every inquiry answered, classified and routed to the right lawyer, with no lead lost in the inbox.</p><p data-l="es">Cada consulta respondida, clasificada y asignada al abogado correcto, sin leads perdidos en el correo.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
-      <a class="fc" href="work.html#contracts"><div class="k" data-l="en">Contracts</div><div class="k" data-l="es">Contratos</div><div class="who" data-l="en">AI review · Risk triage</div><div class="who" data-l="es">Revisión con IA · Riesgos</div><h3 data-l="en">Every contract reviewed against the same standards.</h3><h3 data-l="es">Cada contrato revisado con los mismos estándares.</h3><p data-l="en">A structured risk report against your playbook before the lawyer even opens the file.</p><p data-l="es">Un informe de riesgos frente a tu playbook antes de que el abogado abra el archivo.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
-      <a class="fc" href="work.html#deadlines"><div class="k" data-l="en">Deadlines</div><div class="k" data-l="es">Plazos</div><div class="who" data-l="en">Case management · Monitoring</div><div class="who" data-l="es">Gestión de casos · Monitoreo</div><h3 data-l="en">A deadline is not something you should have to remember.</h3><h3 data-l="es">Un plazo no es algo que debas tener que recordar.</h3><p data-l="en">Dates found, tasks assigned and reminders sent, with a person confirming every critical deadline.</p><p data-l="es">Fechas detectadas, tareas asignadas y recordatorios enviados, con una persona confirmando cada plazo crítico.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
+      <a class="fc" href="/work#intake"><div class="k" data-l="en">Intake</div><div class="k" data-l="es">Clientes</div><div class="who" data-l="en">Client intake · CRM · WhatsApp</div><div class="who" data-l="es">Captación · CRM · WhatsApp</div><h3 data-l="en">From first inquiry to organised legal matter.</h3><h3 data-l="es">De la primera consulta a un caso organizado.</h3><p data-l="en">Every inquiry answered, classified and routed to the right lawyer, with no lead lost in the inbox.</p><p data-l="es">Cada consulta respondida, clasificada y asignada al abogado correcto, sin leads perdidos en el correo.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
+      <a class="fc" href="/work#contracts"><div class="k" data-l="en">Contracts</div><div class="k" data-l="es">Contratos</div><div class="who" data-l="en">AI review · Risk triage</div><div class="who" data-l="es">Revisión con IA · Riesgos</div><h3 data-l="en">Every contract reviewed against the same standards.</h3><h3 data-l="es">Cada contrato revisado con los mismos estándares.</h3><p data-l="en">A structured risk report against your playbook before the lawyer even opens the file.</p><p data-l="es">Un informe de riesgos frente a tu playbook antes de que el abogado abra el archivo.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
+      <a class="fc" href="/work#deadlines"><div class="k" data-l="en">Deadlines</div><div class="k" data-l="es">Plazos</div><div class="who" data-l="en">Case management · Monitoring</div><div class="who" data-l="es">Gestión de casos · Monitoreo</div><h3 data-l="en">A deadline is not something you should have to remember.</h3><h3 data-l="es">Un plazo no es algo que debas tener que recordar.</h3><p data-l="en">Dates found, tasks assigned and reminders sent, with a person confirming every critical deadline.</p><p data-l="es">Fechas detectadas, tareas asignadas y recordatorios enviados, con una persona confirmando cada plazo crítico.</p><span class="go" data-l="en">See the example</span><span class="go" data-l="es">Ver el ejemplo</span></a>
     </div>
-    <p style="margin-top:24px"><a class="link" href="work.html"><span data-l="en">See all 7 examples</span><span data-l="es">Ver los 7 ejemplos</span></a></p>
+    <p style="margin-top:24px"><a class="link" href="/work"><span data-l="en">See all 7 examples</span><span data-l="es">Ver los 7 ejemplos</span></a></p>
   </div>
 </section>
 
@@ -88,6 +90,7 @@
   <div class="wrap">
     <div class="head"><h2 id="pt"><span data-l="en">How we <em>work.</em></span><span data-l="es">Cómo <em>trabajamos.</em></span></h2>
       <p class="lead" data-l="en">We never let software invent your process. We map it with you first, then automate the step that matters most.</p><p class="lead" data-l="es">Nunca dejamos que el software invente tu proceso. Primero lo mapeamos contigo y luego automatizamos el paso que más importa.</p></div>
+    <div class="ottobar"><picture><source srcset="/assets/otto-laptop.webp" type="image/webp"><img class="otto" src="/assets/otto-laptop.png" alt="Otto, the Autia Lab robot, holding a laptop with the Autia logo" width="600" height="600" loading="lazy"></picture><p><b>Otto</b> <span data-l="en">is our robot. He does the repetitive work in your systems; your team keeps the decisions. Every system runs in your own accounts, so you own it from day one.</span><span data-l="es">es nuestro robot. Hace el trabajo repetitivo en tus sistemas; tu equipo se queda con las decisiones. Cada sistema corre en tus propias cuentas, así que es tuyo desde el primer día.</span></p></div>
     <div class="proc">
       <div class="st"><div class="n">01</div><h3 data-l="en">Discover</h3><h3 data-l="es">Diagnóstico</h3><p data-l="en">We find the bottlenecks: repetitive tasks, disconnected tools, leads that go cold, work that waits on one person.</p><p data-l="es">Encontramos los cuellos de botella: tareas repetitivas, herramientas desconectadas, leads que se enfrían, trabajo que depende de una persona.</p></div>
       <div class="st"><div class="n">02</div><h3 data-l="en">Design</h3><h3 data-l="es">Diseño</h3><p data-l="en">We map the real process, define the architecture and design the workflow around how your team actually works.</p><p data-l="es">Mapeamos el proceso real, definimos la arquitectura y diseñamos el flujo alrededor de cómo trabaja tu equipo.</p></div>
@@ -133,14 +136,27 @@
   </div>
 </section>
 
-<section class="band" aria-labelledby="at" style="padding-top:0">
-  <div class="wrap about2" style="align-items:center">
-    <figure class="portrait" style="margin:0;max-width:440px"><img class="ph" src="assets/catalina-photo.jpg" alt="Catalina Moreno, founder of Autia Lab" width="720" height="720"><img class="ht" src="assets/catalina-halftone.jpg" alt="" width="720" height="720"></figure>
-    <div>
-      <h2 id="at"><span data-l="en">The person <em>behind it.</em></span><span data-l="es">La persona <em>detrás.</em></span></h2>
-      <p class="lead" style="margin:18px 0 24px" data-l="en">Autia Lab was founded by Catalina Moreno, who combines international business experience across Colombia and Europe, hands-on AI building, years of work with businesses and stakeholders from different industries, and a background in privacy and AI governance. She starts with the business problem, not the technology.</p>
-      <p class="lead" style="margin:18px 0 24px" data-l="es">Autia Lab fue fundada por Catalina Moreno, que combina experiencia internacional de negocio en Colombia y Europa, construcción práctica de sistemas de IA, años de trabajo con empresas y personas de distintas industrias, y una formación en privacidad y gobierno de la IA. Empieza por el problema del negocio, no por la tecnología.</p>
-      <a class="link" href="about.html"><span data-l="en">Meet Catalina</span><span data-l="es">Conoce a Catalina</span></a>
+<section class="band" id="team" aria-labelledby="at" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 id="at"><span data-l="en">The team <em>behind it.</em></span><span data-l="es">El equipo <em>detrás.</em></span></h2>
+      <p class="lead" data-l="en">Two co-founders, one rule: we start with the business problem, not the technology. One of us makes sure we solve a problem worth solving. The other builds the system that solves it.</p><p class="lead" data-l="es">Dos cofundadores, una regla: empezamos por el problema del negocio, no por la tecnología. Uno se asegura de que resolvamos un problema que vale la pena. La otra construye el sistema que lo resuelve.</p></div>
+    <div class="team">
+      <article class="mate">
+        <figure class="portrait" style="margin:0"><img class="ph" src="/assets/catalina-photo.jpg" alt="Catalina Moreno, co-founder of Autia Lab" width="720" height="720" loading="lazy"><img class="ht" src="/assets/catalina-halftone.jpg" alt="" width="720" height="720" loading="lazy"></figure>
+        <h3>Catalina Moreno</h3>
+        <p class="role" data-l="en">Co-founder · Operations, Product &amp; Strategy</p><p class="role" data-l="es">Cofundadora · Operaciones, Producto y Estrategia</p>
+        <p data-l="en">Designs and builds every system we deliver: the automations, the AI and the way it all connects to your tools. Background in international business, privacy and AI governance, so what we build is safe to scale.</p>
+        <p data-l="es">Diseña y construye cada sistema que entregamos: las automatizaciones, la IA y cómo se conecta todo con tus herramientas. Experiencia internacional de negocio, privacidad y gobierno de la IA, para que lo que construimos pueda escalar con seguridad.</p>
+        <a class="link" href="/about"><span data-l="en">Meet Catalina</span><span data-l="es">Conoce a Catalina</span></a>
+      </article>
+      <article class="mate">
+        <figure class="portrait initials" style="margin:0" aria-label="Khalil Antar"><span aria-hidden="true">KA</span></figure>
+        <h3>Khalil Antar</h3>
+        <p class="role" data-l="en">Co-founder · Sales &amp; Growth</p><p class="role" data-l="es">Cofundador · Ventas y Crecimiento</p>
+        <p data-l="en">Usually your first conversation with us. Khalil learns how your business wins clients today, finds where automation pays for itself, and keeps every project tied to a revenue goal.</p>
+        <p data-l="es">Normalmente es tu primera conversación con nosotros. Khalil entiende cómo consigue clientes tu empresa hoy, encuentra dónde la automatización se paga sola y mantiene cada proyecto atado a una meta de ingresos.</p>
+        <a class="link" href="/about#khalil"><span data-l="en">Meet Khalil</span><span data-l="es">Conoce a Khalil</span></a>
+      </article>
     </div>
   </div>
 </section>
@@ -153,6 +169,7 @@
       <p class="lead" style="margin-top:18px" data-l="en">Tell us where it hurts: repetitive processes, disconnected tools, leads waiting too long, or AI you want to use safely. We'll come back with where we'd start.</p>
       <p class="lead" style="margin-top:18px" data-l="es">Cuéntanos dónde duele: procesos repetitivos, herramientas desconectadas, leads que esperan demasiado o IA que quieres usar con seguridad. Te respondemos con por dónde empezaríamos.</p>
       <div class="direct"><span data-l="en">Prefer email?</span><span data-l="es">¿Prefieres correo?</span><a href="mailto:catalina@autialab.com">catalina@autialab.com</a><span data-l="en">English and Spanish · US and Latin America</span><span data-l="es">Inglés y español · Estados Unidos y Latinoamérica</span></div>
+      <picture><source srcset="/assets/otto-wave.webp" type="image/webp"><img class="otto otto-wave" src="/assets/otto-wave.png" alt="Otto, the Autia Lab robot, waving" width="600" height="600" loading="lazy"></picture>
     </div>
     <form id="form" novalidate>
       <div class="row">
@@ -174,6 +191,7 @@
           <option value="Not sure yet">Not sure yet / Aún no sé</option>
         </select></label>
       <label for="fDesc"><span><span data-l="en">How does it work today?</span><span data-l="es">¿Cómo funciona hoy?</span> <span style="opacity:.7">(optional / opcional)</span></span><textarea id="fDesc" name="desc" data-ph-en="Who does it, how often, which tools are involved" data-ph-es="Quién lo hace, con qué frecuencia, qué herramientas usa"></textarea></label>
+      <p class="consent" data-l="en">We use your details only to reply to you and prepare the call. See our <a href="/privacy">privacy notice</a>.</p><p class="consent" data-l="es">Usamos tus datos solo para responderte y preparar la llamada. Consulta nuestro <a href="/privacy">aviso de privacidad</a>.</p>
       <button class="btn pri" type="submit" style="justify-self:start"><span data-l="en">Start a conversation</span><span data-l="es">Empezar la conversación</span></button>
       <div class="ok" id="ok" role="status"></div>
     </form>
@@ -181,11 +199,11 @@
 </section>
 
 <footer><div class="foot">
-<a class="logo" href="index.html" aria-label="Autia Lab" style="font-size:28px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+<a class="logo" href="/" aria-label="Autia Lab" style="font-size:28px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
 <span data-l="en">We find your bottleneck and build the system that clears it.</span><span data-l="es">Encontramos tu cuello de botella y construimos el sistema que lo destapa.</span>
-<nav aria-label="Footer"><a href="work.html"><span data-l="en">Work</span><span data-l="es">Casos</span></a><a href="about.html"><span data-l="en">About</span><span data-l="es">Nosotros</span></a><a href="mailto:catalina@autialab.com">catalina@autialab.com</a></nav>
+<nav aria-label="Footer"><a href="/work"><span data-l="en">Work</span><span data-l="es">Casos</span></a><a href="/about"><span data-l="en">About</span><span data-l="es">Nosotros</span></a><a href="/privacy"><span data-l="en">Privacy</span><span data-l="es">Privacidad</span></a><a href="mailto:catalina@autialab.com">catalina@autialab.com</a></nav>
 <span>© <span class="yr">2026</span> Autia Lab</span>
 </div></footer>
-<script src="assets/site.js?v=4"></script>
+<script src="/assets/site.js?v=5"></script>
 </body>
 </html>

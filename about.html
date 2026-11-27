@@ -2,6 +2,8 @@
 <html lang="en" data-title-en="About · Autia Lab" data-title-es="Nosotros · Autia Lab">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · Autia Lab</title>
 <meta name="description" content="Catalina Moreno founded Autia Lab to combine business strategy, AI and privacy into systems that help companies operate and grow.">
@@ -9,21 +11,21 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23060608'/%3E%3Ccircle cx='42' cy='60' r='20' fill='none' stroke='white' stroke-width='13'/%3E%3Cpath d='M62 42V68C62 80 70 84 80 80' fill='none' stroke='white' stroke-width='13' stroke-linecap='round'/%3E%3Ccircle cx='62' cy='20' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@900&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 <div id="intro" aria-hidden="true"><div><svg class="iso" viewBox="0 0 100 100" aria-hidden="true"><circle cx="42" cy="60" r="20" fill="none" stroke="#F6F3EE" stroke-width="13"/><path d="M62 42V68C62 80 70 84 80 80" fill="none" stroke="#F6F3EE" stroke-width="13" stroke-linecap="round"/><circle class="node" cx="62" cy="20" r="9" fill="#FF6B35"/></svg><div class="word"><span class="logo" style="font-size:40px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></span></div></div></div>
 <div id="chooser" role="dialog" aria-modal="true" aria-labelledby="chT"><div class="choose"><h2 id="chT">Choose your language</h2><p>Elige tu idioma</p><button type="button" data-set="en">English</button><button type="button" data-set="es">Español</button></div></div>
 <nav class="top" aria-label="Main"><div class="nav">
-<a class="logo" href="index.html" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+<a class="logo" href="/" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
 <div class="links" id="links">
-<a href="work.html"><span data-l="en">Work</span><span data-l="es">Casos</span></a>
-<a href="index.html#services"><span data-l="en">Services</span><span data-l="es">Servicios</span></a>
-<a href="index.html#process"><span data-l="en">Process</span><span data-l="es">Proceso</span></a>
-<a href="about.html" aria-current="page"><span data-l="en">About</span><span data-l="es">Nosotros</span></a>
+<a href="/work"><span data-l="en">Work</span><span data-l="es">Casos</span></a>
+<a href="/#services"><span data-l="en">Services</span><span data-l="es">Servicios</span></a>
+<a href="/#process"><span data-l="en">Process</span><span data-l="es">Proceso</span></a>
+<a href="/about" aria-current="page"><span data-l="en">About</span><span data-l="es">Nosotros</span></a>
 </div>
 <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">EN</button><button type="button" data-set="es" aria-pressed="false">ES</button></div>
-<a class="btn pri" href="index.html#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a>
+<a class="btn pri" href="/#contact" data-book><span data-l="en">Book a call</span><span data-l="es">Agenda una llamada</span></a>
 <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
 </div></nav>
 <header class="band hero" style="padding-bottom:clamp(56px,7vw,110px)">
@@ -54,11 +56,11 @@
 <section class="band" aria-labelledby="ct">
   <div class="wrap about2">
     <div class="pin">
-      <figure class="portrait" style="margin:0"><img class="ph" src="assets/catalina-photo.jpg" alt="Catalina Moreno, founder of Autia Lab" width="720" height="720"><img class="ht" src="assets/catalina-halftone.jpg" alt="" width="720" height="720"><figcaption data-l="en">Hover to switch</figcaption><figcaption data-l="es">Pasa el cursor</figcaption></figure>
+      <figure class="portrait" style="margin:0"><img class="ph" src="/assets/catalina-photo.jpg" alt="Catalina Moreno, co-founder of Autia Lab" width="720" height="720"><img class="ht" src="/assets/catalina-halftone.jpg" alt="" width="720" height="720"><figcaption data-l="en">Hover to switch</figcaption><figcaption data-l="es">Pasa el cursor</figcaption></figure>
     </div>
     <div>
       <h2 id="ct">Catalina Moreno</h2>
-      <p class="role" data-l="en">Founder · Autia Lab</p><p class="role" data-l="es">Fundadora · Autia Lab</p>
+      <p class="role" data-l="en">Co-founder · Operations, Product &amp; Strategy</p><p class="role" data-l="es">Cofundadora · Operaciones, Producto y Estrategia</p>
       <div class="bio" data-l="en">
         <p>Catalina Moreno combines international business experience with a hands-on understanding of AI.</p>
         <p>She has been working since 2021 with companies and stakeholders from many different industries. From the start, her role went beyond giving advice: she got involved in how companies actually operate, finding the bottlenecks that slowed them down and implementing innovative solutions to clear them. Close to the technology ecosystem, she began building with generative AI from the first release of ChatGPT in November 2022.</p>
@@ -84,17 +86,38 @@
         <div class="fact"><b>DataCamp</b><span>SQL · n8n Workflows</span></div>
         <div class="fact"><b>Asana</b><span>Workflow Specialist</span></div>
       </div>
-      <div class="ctas" style="margin-top:30px"><a class="btn pri" href="index.html#contact" data-book><span data-l="en">Book a call with Catalina</span><span data-l="es">Agenda una llamada con Catalina</span></a><a class="btn ghost" href="work.html"><span data-l="en">See the work</span><span data-l="es">Ver los casos</span></a></div>
+      <div class="ctas" style="margin-top:30px"><a class="btn pri" href="/#contact" data-book><span data-l="en">Book a call with Catalina</span><span data-l="es">Agenda una llamada con Catalina</span></a><a class="btn ghost" href="/work"><span data-l="en">See the work</span><span data-l="es">Ver los casos</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="khalil" aria-labelledby="kt" style="padding-top:0">
+  <div class="wrap about2">
+    <div class="pin"><figure class="portrait initials" style="margin:0" aria-label="Khalil Antar"><span aria-hidden="true">KA</span></figure></div>
+    <div>
+      <h2 id="kt">Khalil Antar</h2>
+      <p class="role" data-l="en">Co-founder · Sales &amp; Growth</p><p class="role" data-l="es">Cofundador · Ventas y Crecimiento</p>
+      <div class="bio" data-l="en">
+        <p>Khalil leads sales and growth at Autia Lab.</p>
+        <p>He is usually the first person you talk to. His job is to understand how your business wins and keeps clients today, find where an automation will pay for itself, and make sure every project we take on is tied to a clear business goal.</p>
+        <p>Catalina builds the systems; Khalil makes sure they solve a problem worth paying for. Together they own every project from the first call to the handover.</p>
+      </div>
+      <div class="bio" data-l="es">
+        <p>Khalil lidera las ventas y el crecimiento de Autia Lab.</p>
+        <p>Normalmente es la primera persona con la que hablas. Su trabajo es entender cómo tu empresa consigue y mantiene clientes hoy, encontrar dónde una automatización se paga sola y asegurarse de que cada proyecto que tomamos esté atado a una meta clara de negocio.</p>
+        <p>Catalina construye los sistemas; Khalil se asegura de que resuelvan un problema por el que vale la pena pagar. Juntos acompañan cada proyecto desde la primera llamada hasta la entrega.</p>
+      </div>
+      <div class="ctas" style="margin-top:30px"><a class="btn pri" href="/#contact" data-book><span data-l="en">Book a call with us</span><span data-l="es">Agenda una llamada con nosotros</span></a></div>
     </div>
   </div>
 </section>
 
 <footer><div class="foot">
-<a class="logo" href="index.html" aria-label="Autia Lab" style="font-size:28px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+<a class="logo" href="/" aria-label="Autia Lab" style="font-size:28px">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
 <span data-l="en">We find your bottleneck and build the system that clears it.</span><span data-l="es">Encontramos tu cuello de botella y construimos el sistema que lo destapa.</span>
-<nav aria-label="Footer"><a href="work.html"><span data-l="en">Work</span><span data-l="es">Casos</span></a><a href="about.html"><span data-l="en">About</span><span data-l="es">Nosotros</span></a><a href="mailto:catalina@autialab.com">catalina@autialab.com</a></nav>
+<nav aria-label="Footer"><a href="/work"><span data-l="en">Work</span><span data-l="es">Casos</span></a><a href="/about"><span data-l="en">About</span><span data-l="es">Nosotros</span></a><a href="/privacy"><span data-l="en">Privacy</span><span data-l="es">Privacidad</span></a><a href="mailto:catalina@autialab.com">catalina@autialab.com</a></nav>
 <span>© <span class="yr">2026</span> Autia Lab</span>
 </div></footer>
-<script src="assets/site.js?v=4"></script>
+<script src="/assets/site.js?v=5"></script>
 </body>
 </html>
