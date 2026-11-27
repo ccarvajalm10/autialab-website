@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-title-en="Demo · Autia Lab" data-title-es="Demo · Autia Lab">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo · Autia Lab</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23060608'/%3E%3Ccircle cx='42' cy='60' r='20' fill='none' stroke='white' stroke-width='13'/%3E%3Cpath d='M62 42V68C62 80 70 84 80 80' fill='none' stroke='white' stroke-width='13' stroke-linecap='round'/%3E%3Ccircle cx='62' cy='20' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@900&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=2">
+<style>
+body{min-height:100svh;display:flex;flex-direction:column}
+.dbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px max(4vw,16px);border-bottom:1px solid var(--line)}
+.dbar .back{margin-left:auto;color:var(--mute);text-decoration:none;font-size:15px}
+.dbar .back:hover{color:var(--ink)}
+.dhead{padding:22px max(4vw,16px) 8px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between}
+.dhead h1{font-size:clamp(26px,3.4vw,40px);font-weight:500}
+.dhead p{color:var(--mute);font-size:14px}
+.scen{display:flex;gap:8px;overflow-x:auto;padding:8px max(4vw,16px) 14px}
+.scen button{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #3a3744;background:none;color:var(--mute);font:600 14px 'Instrument Sans',sans-serif;cursor:pointer}
+.scen button[aria-pressed=true]{background:var(--ink);color:#060608;border-color:var(--ink)}
+.board{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);gap:16px;padding:8px max(4vw,16px) 16px;align-items:start}
+.col{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px;min-height:360px;display:flex;flex-direction:column;gap:10px}
+.col h2{font-size:15px;font-weight:600;color:var(--mute);letter-spacing:0;display:flex;align-items:center;gap:8px}
+.col h2 i{width:9px;height:9px;border-radius:50%;background:var(--org);display:inline-block}
+.sys{background:linear-gradient(165deg,#1d100b,#0e0d14)}
+.item,.out,.stepl{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.show{opacity:1;transform:none}
+.item{padding:12px 14px;border-radius:14px;background:#17151f;border:1px solid #2b2833;font-size:14px}
+.item small{display:block;color:var(--teal);font-weight:600;font-size:12px;margin-bottom:4px}
+.stepl{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.stepl b{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #3a3744;display:grid;place-items:center;font-size:12px;margin-top:1px}
+.stepl.done b{border-color:var(--org);background:var(--org);color:#060608}
+.stepl.done b::after{content:"✓"}
+.fields{margin-top:6px;border-top:1px solid #2b2833}
+.fields div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #2b2833;font-size:14px;opacity:0;transition:opacity .4s}
+.fields div.show{opacity:1}
+.fields span{color:var(--mute)}
+.out{padding:12px 14px;border-radius:14px;background:#10201d;border:1px solid #1d5a50;font-size:14px}
+.out.flag{background:#24150f;border-color:#6a3218}
+.review{margin:0 max(4vw,16px) 18px;padding:16px 18px;border-radius:16px;border:1px dashed #6a3218;background:#170f0c;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;opacity:0;transition:opacity .4s}
+.review.show{opacity:1}
+.review p{font-size:15px;max-width:70ch}
+.review .btns{display:flex;gap:8px}
+.done-msg{color:var(--teal);font-weight:600}
+.foot2{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:0 max(4vw,16px) 22px;color:var(--mute);font-size:13px}
+@media(max-width:900px){.board{grid-template-columns:minmax(0,1fr)}.col{min-height:0}}
+</style>
+</head>
+<body>
+<div class="dbar">
+  <a class="logo" href="../index.html" style="font-size:28px" aria-label="Autia Lab home">autia<svg viewBox="0 6 148 84" fill="none" stroke-width="13" stroke-linecap="round" aria-hidden="true"><path d="M7 14V80" stroke="currentColor"/><circle cx="41" cy="60" r="20" stroke="currentColor"/><path d="M61 42V68C61 80 69 84 79 80" stroke="currentColor"/><circle cx="61" cy="20" r="9" fill="#FF6B35" stroke="none"/><path d="M99 14V80" stroke="currentColor"/><circle cx="119" cy="60" r="20" stroke="currentColor"/></svg></a>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">EN</button><button type="button" data-set="es" aria-pressed="false">ES</button></div>
+  <a class="back" id="back" href="../work.html"><span data-l="en">← Back to the example</span><span data-l="es">← Volver al ejemplo</span></a>
+</div>
+<div class="dhead"><h1 id="dTitle"></h1><p><span data-l="en">Illustrative demo with sample data. No real client information.</span><span data-l="es">Demo ilustrativa con datos de ejemplo. Sin información real de clientes.</span></p></div>
+<div class="scen" id="scen" role="group" aria-label="Demos"></div>
+<main class="board">
+  <section class="col"><h2><i style="background:var(--teal)"></i><span data-l="en">Comes in</span><span data-l="es">Entra</span></h2><div id="cIn" style="display:flex;flex-direction:column;gap:10px"></div></section>
+  <section class="col sys"><h2><i></i><span data-l="en">Autia system</span><span data-l="es">Sistema Autia</span></h2><div id="cSys" style="display:flex;flex-direction:column;gap:12px"></div><div class="fields" id="cF"></div></section>
+  <section class="col"><h2><i style="background:var(--amb)"></i><span data-l="en">Goes out</span><span data-l="es">Sale</span></h2><div id="cOut" style="display:flex;flex-direction:column;gap:10px"></div></section>
+</main>
+<div class="review" id="rev" aria-live="polite"><p id="revT"></p><div class="btns" id="revB"></div></div>
+<div class="foot2"><button class="btn ghost" type="button" id="replay" style="min-height:42px"><span data-l="en">Replay</span><span data-l="es">Repetir</span></button><span data-l="en">AI does the reading. Rules do the routing. People make the decisions.</span><span data-l="es">La IA lee. Las reglas asignan. Las personas deciden.</span></div>
+<script src="../assets/site.js?v=2"></script>
+<script>
+{
+const D={
+documents:{n:['Documents','Documentos'],t:['Every document, filed itself.','Cada documento, archivado solo.'],
+ in:[['Email · client','Correo · cliente','Signed engagement letter (PDF)','Carta de encargo firmada (PDF)'],['WhatsApp · client','WhatsApp · cliente','Photo of ID card','Foto del documento de identidad'],['Web form','Formulario web','annex_B.docx, no reference','anexo_B.docx, sin referencia']],
+ st:[['Reading 3 new documents','Leyendo 3 documentos nuevos'],['Identifying type and client','Identificando tipo y cliente'],['Matching each to its matter','Asociando cada uno a su caso'],['Applying naming rules and filing','Aplicando reglas de nombre y archivando']],
+ f:[['Type','Tipo','Engagement letter','Carta de encargo'],['Client','Cliente','Rivera Logistics S.A.S.','Rivera Logistics S.A.S.'],['Matter','Caso','2026-118 · Corporate','2026-118 · Corporativo'],['New name','Nombre nuevo','2026-118_Engagement_Signed.pdf','2026-118_Encargo_Firmado.pdf']],
+ out:[['Filed in matter 2026-118','Archivado en el caso 2026-118'],['ID saved to client folder','Documento guardado en la carpeta del cliente'],['Case record updated','Expediente actualizado']],
+ rv:['annex_B.docx has no client or matter reference. File it in 2026-118?','anexo_B.docx no tiene referencia de cliente ni caso. ¿Archivar en 2026-118?']},
+contracts:{n:['Contracts','Contratos'],t:['Your playbook, applied to every page.','Tu playbook, aplicado a cada página.'],
+ in:[['Upload · lawyer','Carga · abogado','Supply agreement, 24 pages','Contrato de suministro, 24 páginas'],['Playbook','Playbook','Firm standards v3','Estándares de la firma v3']],
+ st:[['Extracting text and clauses','Extrayendo texto y cláusulas'],['Comparing against the playbook','Comparando con el playbook'],['Ranking findings by priority','Ordenando hallazgos por prioridad'],['Writing the risk report','Redactando el informe de riesgos']],
+ f:[['Limitation of liability','Limitación de responsabilidad','High · p. 11','Alta · p. 11'],['Data protection clause','Cláusula de protección de datos','Missing','Falta'],['Auto-renewal','Renovación automática','Medium · p. 17','Media · p. 17'],['Governing law','Ley aplicable','Matches standard','Cumple el estándar']],
+ out:[['Risk report with clause text and page','Informe de riesgos con texto y página'],['Suggested comments for the counterparty','Comentarios sugeridos para la contraparte']],
+ rv:['3 findings need a lawyer\'s judgement before comments go out.','3 hallazgos necesitan el criterio de un abogado antes de enviar comentarios.']},
+intake:{n:['Intake','Clientes'],t:['Every inquiry, answered and routed.','Cada consulta, respondida y asignada.'],
+ in:[['WhatsApp · 22:47','WhatsApp · 22:47','"Hi, I need help with work visas for 3 employees."','"Hola, necesito ayuda con visas de trabajo para 3 empleados."'],['Web form','Formulario web','Contract dispute with a supplier','Disputa contractual con un proveedor']],
+ st:[['Reading and classifying the inquiry','Leyendo y clasificando la consulta'],['Replying in seconds with a short questionnaire','Respondiendo en segundos con un cuestionario corto'],['Creating the lead in the CRM','Creando el lead en el CRM'],['Routing to the right practice area','Asignando al área correcta']],
+ f:[['Service','Servicio','Immigration · Corporate visas','Migratorio · Visas corporativas'],['Urgency','Urgencia','Start date in 6 weeks','Inicio en 6 semanas'],['Missing','Falta','Passport copies, job offers','Copias de pasaportes, ofertas de empleo'],['Assigned to','Asignado a','Immigration team','Equipo de migración']],
+ out:[['Acknowledgment sent on WhatsApp','Confirmación enviada por WhatsApp'],['Lead created with a summary','Lead creado con resumen'],['Follow-up reminder set for tomorrow','Recordatorio de seguimiento para mañana']],
+ rv:['Run the conflict check before accepting the client?','¿Hacer el control de conflictos antes de aceptar al cliente?']},
+deadlines:{n:['Deadlines','Plazos'],t:['Dates found. Owners reminded.','Fechas detectadas. Responsables avisados.'],
+ in:[['Email · court','Correo · juzgado','Notice: reply due within 10 business days','Auto: responder dentro de 10 días hábiles'],['Email · client','Correo · cliente','"Can we meet on 14 January?"','"¿Podemos reunirnos el 14 de enero?"']],
+ st:[['Finding dates and required actions','Encontrando fechas y acciones'],['Telling deadlines from appointments','Distinguiendo plazos de citas'],['Proposing tasks and owners','Proponiendo tareas y responsables'],['Scheduling reminders and escalation','Programando recordatorios y escalamiento']],
+ f:[['Deadline','Plazo','Reply to claim · 9 Dec','Contestar demanda · 9 dic'],['Matter','Caso','2026-091 · Litigation','2026-091 · Litigio'],['Owner','Responsable','L. Ruiz','L. Ruiz'],['Reminders','Recordatorios','5, 2 and 1 days before','5, 2 y 1 día antes']],
+ out:[['Task created and assigned','Tarea creada y asignada'],['Meeting proposed for 14 Jan','Reunión propuesta para el 14 ene'],['Escalation if not done 2 days before','Escalamiento si no se cierra 2 días antes']],
+ rv:['Confirm "Reply to claim · 9 Dec" before it enters the official calendar.','Confirma "Contestar demanda · 9 dic" antes de que entre al calendario oficial.']},
+research:{n:['Research','Investigación'],t:['New rules, already summarised.','Normas nuevas, ya resumidas.'],
+ in:[['Official source','Fuente oficial','New guidance on employee monitoring','Nueva guía sobre monitoreo de empleados'],['Newsletter','Boletín','3 court decisions this week','3 decisiones judiciales esta semana']],
+ st:[['Collecting and removing duplicates','Recolectando y quitando duplicados'],['Classifying by subject and jurisdiction','Clasificando por tema y jurisdicción'],['Summarising what changed','Resumiendo qué cambió'],['Matching to affected clients','Cruzando con los clientes afectados']],
+ f:[['Topic','Tema','Privacy · Employment','Privacidad · Laboral'],['Jurisdiction','Jurisdicción','EU · Ireland','UE · Irlanda'],['Relevance','Relevancia','High','Alta'],['Affects','Afecta','6 clients, 2 open matters','6 clientes, 2 casos abiertos']],
+ out:[['Summary posted to the team chat','Resumen enviado al chat del equipo'],['Added to the knowledge base with source link','Agregado a la base de conocimiento con enlace a la fuente']],
+ rv:['Review the summary against the source before sharing it with clients.','Revisa el resumen contra la fuente antes de compartirlo con clientes.']},
+billing:{n:['Billing','Facturación'],t:['Receipts in. Books reconciled.','Entran recibos. Cuentas conciliadas.'],
+ in:[['WhatsApp · lawyer','WhatsApp · abogado','Photo: taxi receipt $38.20','Foto: recibo de taxi $38,20'],['Email · supplier','Correo · proveedor','Invoice: court filing fees','Factura: tasas judiciales'],['Bank feed','Banco','Payment received $1,250','Pago recibido $1.250']],
+ st:[['Reading receipts and invoices','Leyendo recibos y facturas'],['Categorising and checking duplicates','Clasificando y revisando duplicados'],['Matching to payments and matters','Cruzando con pagos y casos'],['Preparing the monthly report','Preparando el reporte mensual']],
+ f:[['Taxi $38.20','Taxi $38,20','Travel · Matter 2026-091','Viajes · Caso 2026-091'],['Court fees','Tasas judiciales','Matched to bank · 2026-091','Conciliado con banco · 2026-091'],['$1,250 payment','Pago de $1.250','No matching invoice','Sin factura asociada']],
+ out:[['2 expenses recorded and reconciled','2 gastos registrados y conciliados'],['Monthly report updated','Reporte mensual actualizado']],
+ rv:['$1,250 payment has no invoice. Link it to a client?','El pago de $1.250 no tiene factura. ¿Asociarlo a un cliente?']},
+reporting:{n:['Reporting','Reportes'],t:['The update, written before they ask.','La actualización, lista antes de que pregunten.'],
+ in:[['Matter 2026-118','Caso 2026-118','8 emails, 5 tasks, 2 documents this month','8 correos, 5 tareas, 2 documentos este mes'],['Schedule','Agenda','Monthly client update due Friday','Actualización mensual para el viernes']],
+ st:[['Gathering approved matter information','Reuniendo la información aprobada del caso'],['Checking completed and pending tasks','Revisando tareas cerradas y pendientes'],['Drafting a client-friendly update','Redactando una actualización clara'],['Notifying the responsible lawyer','Avisando al abogado responsable']],
+ f:[['Status','Estado','On track','En curso'],['Done','Hecho','Filing submitted, meeting held','Radicación presentada, reunión realizada'],['Pending','Pendiente','Signed power of attorney','Poder firmado'],['Next date','Próxima fecha','Hearing · 3 Feb','Audiencia · 3 feb']],
+ out:[['Draft ready for review','Borrador listo para revisión']],
+ rv:['Approve the update before it goes to the client?','¿Aprobar la actualización antes de enviarla al cliente?']}
+};
+const ids=Object.keys(D),$=s=>document.querySelector(s),esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let cur=ids.includes(location.hash.slice(1))?location.hash.slice(1):'intake',timers=[];
+const L=()=>document.documentElement.lang==='es'?1:0;
+const later=(ms,f)=>timers.push(setTimeout(f,RM?0:ms));
+const render=()=>{timers.forEach(clearTimeout);timers=[];const d=D[cur],l=L();
+ $('#dTitle').textContent=d.t[l];$('#back').href='../work.html#'+cur;
+ $('#scen').innerHTML=ids.map(i=>`<button type="button" data-id="${i}" aria-pressed="${i===cur}">${esc(D[i].n[l])}</button>`).join('');
+ $('#cIn').innerHTML=d.in.map(x=>`<div class="item"><small>${esc(x[l])}</small>${esc(x[2+l])}</div>`).join('');
+ $('#cSys').innerHTML=d.st.map((x,i)=>`<div class="stepl"><b>${RM?'':i+1}</b><span>${esc(x[l])}</span></div>`).join('');
+ $('#cF').innerHTML=d.f.map(x=>`<div><span>${esc(x[l])}</span><b>${esc(x[2+l])}</b></div>`).join('');
+ $('#cOut').innerHTML=d.out.map(x=>`<div class="out">✓ ${esc(x[l])}</div>`).join('');
+ const rev=$('#rev');rev.classList.remove('show');$('#revT').textContent=(l?'Revisión humana: ':'Human review: ')+d.rv[l];
+ $('#revB').innerHTML=`<button class="btn pri" type="button" id="ap" style="min-height:42px">${l?'Aprobar':'Approve'}</button><button class="btn ghost" type="button" id="ed" style="min-height:42px">${l?'Editar':'Edit'}</button>`;
+ const fin=t=>{$('#revB').innerHTML=`<span class="done-msg">${esc(t)}</span>`};
+ $('#ap').onclick=()=>fin(l?'Aprobado. El sistema continúa.':'Approved. The system carries on.');
+ $('#ed').onclick=()=>fin(l?'Enviado a la persona responsable para editar.':'Sent to the responsible person to edit.');
+ let t=200;
+ document.querySelectorAll('#cIn .item').forEach(e=>{later(t,()=>e.classList.add('show'));t+=500});
+ document.querySelectorAll('#cSys .stepl').forEach(e=>{later(t,()=>e.classList.add('show'));t+=450;later(t,()=>{e.classList.add('done');e.querySelector('b').textContent=''});t+=250});
+ document.querySelectorAll('#cF div').forEach(e=>{later(t,()=>e.classList.add('show'));t+=300});
+ document.querySelectorAll('#cOut .out').forEach(e=>{later(t,()=>e.classList.add('show'));t+=450});
+ later(t+200,()=>rev.classList.add('show'));
+ if(RM)document.querySelectorAll('.stepl').forEach(e=>e.classList.add('done'));
+};
+$('#scen').addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b){cur=b.dataset.id;history.replaceState(null,'','#'+cur);render()}});
+$('#replay').addEventListener('click',render);
+addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(D[h]){cur=h;render()}});
+window.onAutiaLang(render);render();
+}
+</script>
+</body>
+</html>
