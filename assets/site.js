@@ -1,6 +1,6 @@
 {
 /* ---------- settings ---------- */
-const BOOK_URL = '';            // paste a Google Calendar / Calendly booking link here; empty = go to the contact form
+const BOOK_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2f5yQ0nq1_QOHSZxFv7KajvEUurNY3p-nPR35_CKM0m8LKLd3Qi76oz-ml5C7jw53ahwAN-fsW';            // paste a Google Calendar / Calendly booking link here; empty = go to the contact form
 const TESTIMONIALS = [
   {en:"Excellent service. Everything was handled smoothly, and the results were better than I expected. Definitely working with her again.", es:"Excelente servicio. Todo se manejó sin contratiempos y los resultados fueron mejores de lo que esperaba. Sin duda volveré a trabajar con ella."},
   {en:"She understood our needs, our priorities, and the bigger picture. The service was outstanding from beginning to end.", es:"Entendió nuestras necesidades, nuestras prioridades y el panorama completo. El servicio fue excepcional de principio a fin."},
